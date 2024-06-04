@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+    <!--Error Page Start-->
+        <section class="error-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="error-page__inner">
+                            <div class="error-page__title-box">
+                                <h2 class="error-page__title">403</h2>
+                                <h2 class="error-page__title-2">403</h2>
+                            </div>
+                            <h3 class="error-page__tagline">Vous n'avez pas les permissions nécéssaires</h3>
+                            <p class="error-page__text">Identitfiez-vous pour accéder à cette page</p>
+                            <form class="error-page__form">
+                                <div class="error-page__form-input">
+                                    <input type="search" placeholder="Search here">
+                                    <button type="submit"><i class="icon-magnifying-glass"></i></button>
+                                </div>
+                            </form>
+                            <a href="/" class="thm-btn error-page__btn"><i class="fa fa-arrow-right"></i> back to home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+        <!--Error Page End-->
+{% endblock %}
