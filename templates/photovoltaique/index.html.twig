@@ -1,20 +1,190 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PhotovoltaiqueController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<!--Service Details Start-->
+	<section class="service-details">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-4 col-lg-5">
+					<div class="service-details__left">
+						<div class="service-details__category">
+							<ul class="service-details__category-list list-unstyled">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/duboi/Documents/web/ToitureMarlier/src/Controller/PhotovoltaiqueController.php</code></li>
-        <li>Your template at <code>C:/Users/duboi/Documents/web/ToitureMarlier/templates/photovoltaique/index.html.twig</code></li>
-    </ul>
-</div>
+								<li>
+									<a href="/demoussage">Démoussage
+										<span class="fa fa-angle-right"></span>
+									</a>
+								</li>
+
+								<li>
+									<a href="/couverture">Couverture
+										<span class="fa fa-angle-right"></span>
+									</a>
+								</li>
+
+								<li class="active">
+									<a href="/photovoltaique">Panneau Photovoltaïque
+										<span class="fa fa-angle-right"></span>
+									</a>
+								</li>
+
+							</ul>
+						</div>
+
+
+					</div>
+				</div>
+				<div class="col-xl-8 col-lg-7">
+					<div class="service-details__right">
+						<div class="service-details__img">
+							<img src="assets/images/services/couverture3.jpg" alt="">
+							<div class="service-details__icon">
+								<span class="icon-joist"></span>
+							</div>
+						</div>
+						<div class="service-details__content">
+							<h3 class="service-details__content-title">Couverture</h3>
+							<p class="service-details__text-1">
+								Augmenter votre pouvoir d’achat et faits un geste durable pour la planète avec l’installation de panneaux solaires.
+							</p>
+							<p class="service-details__text-2">Qui de plus compétent qu’un couvreur pour installer des panneaux solaires sur votre toiture ?</p>
+							<p class="service-details__text-3">Entouré de professionnels du solaire tel que Rexel département multi-énergie ou Wevolt Energy Roofs ( Wienerberger ) Toiture Marlier vous apporte une étude personnalisée afin de calculer la rentabilité de votre projet ;</p>
+						</div>
+
+
+						<div class="service-details__benefits-content">
+							<ul class="list-unstyled service-details__benefits-points" style="padding-top: 0">
+								<li>
+									<div class="icon">
+										<i class="fa fa-arrow-right"></i>
+									</div>
+									<div class="text">
+										<p>un service qualitatif : suivi administratif, pose des panneaux, raccordement, SAV
+										</p>
+									</div>
+								</li>
+								<li>
+									<div class="icon">
+										<i class="fa fa-arrow-right"></i>
+									</div>
+									<div class="text">
+										<p>la réalisation d’économies d’énergie
+										</p>
+									</div>
+								</li>
+								<li>
+									<div class="icon">
+										<i class="fa fa-arrow-right"></i>
+									</div>
+									<div class="text">
+										<p>un pouvoir d’achat supplémentaire</p>
+									</div>
+								</li>
+
+							</ul>
+						</div>
+
+						<div class="service-details__benefits">
+							<div class="row">
+								<div class="col-xl-6">
+									<div class="service-details__benefits-single">
+										<div class="service-details__benefits-img">
+											<img src="assets/images/services/couverture1.jpg" alt="">
+										</div>
+
+									</div>
+								</div>
+								<div class="col-xl-6">
+									<div class="service-details__benefits-single">
+										<div class="service-details__benefits-img">
+											<img src="assets/images/services/couverture2.jpg" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="service-details__right">
+
+
+							<div class="service-details__benefits">
+								<div class="row">
+									<div class="col-xl-6">
+										<div class="service-details__benefits-single">
+
+											<div class="service-details__benefits-content">
+												<h3 class="service-details__benefits-title">Avantages</h3>
+												<p class="service-details__benefits-text">Les avantages de votre toit solaire :</p>
+											</div>
+										</div>
+									</div>
+									<div class="service-details__benefits-single">
+
+										<div class="service-details__benefits-content">
+											<ul class="list-unstyled service-details__benefits-points" style="padding-top: 0">
+												<li>
+													<div class="icon">
+														<i class="fa fa-arrow-right"></i>
+													</div>
+													<div class="text">
+														<p>Vous produisez votre propre consommation d’électricité ;</p>
+													</div>
+												</li>
+												<li>
+													<div class="icon">
+														<i class="fa fa-arrow-right"></i>
+													</div>
+													<div class="text">
+														<p>Vous auto consommez de 50 à 75 % de vos besoins en électricité ;</p>
+													</div>
+												</li>
+												<li>
+													<div class="icon">
+														<i class="fa fa-arrow-right"></i>
+													</div>
+													<div class="text">
+														<p>Vous revendez le surplus d’énergie à un fournisseur ;</p>
+													</div>
+												</li>
+												<li>
+													<div class="icon">
+														<i class="fa fa-arrow-right"></i>
+													</div>
+													<div class="text">
+														<p>Vous maîtrisez durablement vos factures d’électricité et limitez l’impact des hausses
+																																													de prix</p>
+													</div>
+												</li>
+												<li>
+													<div class="icon">
+														<i class="fa fa-arrow-right"></i>
+													</div>
+													<div class="text">
+														<a href="/assets/images/resources/X-ROOF.pdf" target="_blank">X-ROOF</a>
+													</div>
+												</li>
+												<li>
+													<div class="icon">
+														<i class="fa fa-arrow-right"></i>
+													</div>
+													<div class="text">
+														<a href="/assets/images/resources/X-TILE.pdf" target="_blank">X-TILE</a>
+
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Service Details End-->
 {% endblock %}
