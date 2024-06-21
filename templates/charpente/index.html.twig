@@ -1,20 +1,156 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CharpenteController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<!--Service Details Start-->
+	<section class="service-details">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-4 col-lg-5">
+					<div class="service-details__left">
+						<div class="service-details__category">
+							<ul class="service-details__category-list list-unstyled">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/duboi/Documents/web/ToitureMarlier/src/Controller/CharpenteController.php</code></li>
-        <li>Your template at <code>C:/Users/duboi/Documents/web/ToitureMarlier/templates/charpente/index.html.twig</code></li>
-    </ul>
-</div>
+								<li>
+									<a href="/demoussage">Démoussage
+										<span class="fa fa-angle-right"></span>
+									</a>
+								</li>
+								<li>
+									<a href="/couverture">Couverture
+										<span class="fa fa-angle-right"></span>
+									</a>
+								</li>
+
+								<li>
+									<a href="/photovoltaique">Panneau Photovoltaïque
+										<span class="fa fa-angle-right"></span>
+									</a>
+								</li>
+
+								<li class="active">
+									<a href="/charpente">Charpente
+										<span class="fa fa-angle-right"></span>
+									</a>
+								</li>
+
+								<li>
+									<a href="/toiture">Toiture plate
+										<span class="fa fa-angle-right"></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+
+					</div>
+				</div>
+				<div class="col-xl-8 col-lg-7">
+					<div class="service-details__right">
+						<div class="service-details__img">
+							<img src="assets/images/services/couverture3.jpg" alt="">
+							<div class="service-details__icon">
+								<span class="icon-joist"></span>
+							</div>
+						</div>
+						<div class="service-details__content">
+							<h3 class="service-details__content-title">Charpente en bois et lamellé collé</h3>
+							<p class="service-details__text-1">Chez Toiture Marlier , nous sommes fiers de vous offrir notre expertise en matière de couverture et de charpente. Que ce soit une charpente traditionelle en chêne ou douglas, en fermettes ou en lamellé collé. Notre expertise en charpente comprend une gamme complète de solutions pour la construction ou la rénovation de votre toit et de votre structure de charpente. Nous mettons tout en œuvre pour que votre toit soit solide, durable et esthétique.							
+                            </p>
+							<p class="service-details__text-2">Votre Toiture, Notre Expertise</p>
+							<p class="service-details__text-3">Nous éliminons les végétaux, responsables d’un changement de couleur de vos tuiles à l’aide d’un nettoyage doux. Un nettoyage à haute pression risquerait d’endommager la couverture, c’est pourquoi il vaut mieux nous confier cette tâche. Nous nous chargeons ensuite d’appliquer un fongicide, un anti-mousse et un traitement hydrofuge.</p>
+						</div>
+
+						<div class="service-details__benefits">
+							<div class="row">
+								<div class="col-xl-6">
+									<div class="service-details__benefits-single">
+										<div class="service-details__benefits-img">
+											<img src="assets/images/services/couverture1.jpg" alt="">
+										</div>
+
+									</div>
+								</div>
+								<div class="col-xl-6">
+									<div class="service-details__benefits-single">
+										<div class="service-details__benefits-img">
+											<img src="assets/images/services/couverture2.jpg" alt="">
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+                        <div class="service-details__benefits-content">
+							<ul class="list-unstyled service-details__benefits-points" style="padding-top: 0">
+								<li>
+									<div class="icon">
+										<i class="fa fa-arrow-right"></i>
+									</div>
+									<div class="text">
+										<p>
+                                            <b>Couverture de Toit sur Mesure :</b> Nous concevons et installons des toitures sur mesure pour répondre à vos besoins spécifiques.
+										</p>
+									</div>
+								</li>
+								<li>
+									<div class="icon">
+										<i class="fa fa-arrow-right"></i>
+									</div>
+									<div class="text">
+										<p>
+                                           <b>Réparation de Charpente : </b> Nous réparons et renforçons les charpentes endommagées pour assurer la stabilité de votre maison.
+										</p>
+									</div>
+								</li>
+								<li>
+									<div class="icon">
+										<i class="fa fa-arrow-right"></i>
+									</div>
+									<div class="text">
+										<p>
+                                           <b>Rénovation de Toit : </b>Nous effectuons des rénovations complètes de toitures pour prolonger leur durée de vie.
+                                        </p>
+									</div>
+								</li>
+								<li>
+									<div class="icon">
+										<i class="fa fa-arrow-right"></i>
+									</div>
+									<div class="text">
+										<p>
+                                           <b>Diagnostic de Charpente : </b>Nous réalisons des diagnostics complets de charpente pour détecter tout problème potentiel.     
+                                        </p>
+									</div>
+								</li>
+								<li>
+									<div class="icon">
+										<i class="fa fa-arrow-right"></i>
+									</div>
+									<div class="text">
+										<p>
+                                            <b>Isolation de Toit : </b>Nous améliorons l&#39;efficacité énergétique de votre maison grâce à une isolation de toit de haute qualité.         
+                                        </p>
+									</div>
+								</li>
+								<li>
+									<div class="icon">
+										<i class="fa fa-arrow-right"></i>
+									</div>
+									<div class="text">
+										<p>
+                                           <b>Entretien Préventif : </b>Nous offrons des programmes d&#39;entretien régulier pour prévenir les problèmes futurs.    
+                                        </p>
+									</div>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Service Details End-->
 {% endblock %}
