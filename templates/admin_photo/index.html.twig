@@ -21,43 +21,50 @@
 {% block body %}
 
 <div class="container">
-	<h1 class="my-5">Gestion des chantiers</h1>
-	<div class="table-responsive">
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Description</th>
-					<th>Images</th>
-					<th class="text-center">Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for chantier in chantiers %}
-					<tr>
-						<td>{{ chantier.id }}</td>
-						<td>{{ chantier.description }}</td>
-						{% if chantier.image %}
-                        <td>{{ chantier.description }}</td>
-                        {% endif %}
-                        
-
+    <h1 class="my-5">Gestion des chantiers</h1>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Description</th>
+                    <th>Cover</th>
+                    <th>Image Gauche</th>
+                    <th>Image Droite</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for chantier in chantiers %}
+                    <tr>
+                        <td>{{ chantier.id }}</td>
+                        <td>{{ chantier.desctription }}</td>
+                        <td>
+                            <img src="{{ asset('uploads/images/' ~ chantier.cover) }}" alt="Image" style="width: 100px; height: auto;">                            
+                        </td>
+                        <td>
+                            <img src="{{ asset('uploads/images/' ~ chantier.imgleft) }}" alt="Image" style="width: 100px; height: auto;">                            
+                        </td>
+                        <td>
+                            <img src="{{ asset('uploads/images/' ~ chantier.imgright) }}" alt="Image" style="width: 100px; height: auto;">                            
+                        </td>
                         <td class="text-center">
-							<div class="btn-group" role="group">
-								<a href="" class="btn btn-warning">
-									<i class="fa-solid fa-lock"></i>
-								</a>
-								<a href="" class="btn btn-danger delete-btn">
-									<i class="fas fa-trash"></i>
-								</a>
-							</div>
-						</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	</div>
+                            <div class="btn-group" role="group">
+                                <a href="" class="btn btn-warning">
+                                    <i class="fa-solid fa-lock"></i>
+                                </a>
+                                <form method="post" action="{{ path('app_admin_photo_delete', {'id': chantier.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce chantier ?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ chantier.id) }}">
+                            <button class="btn">Supprimer</button>
+                        </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
-	<script src="https://kit.fontawesome.com/61eae04d09.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/61eae04d09.js" crossorigin="anonymous"></script>
 
 {% endblock %}

@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\ChantierRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ChantierRepository::class)]
@@ -16,62 +14,81 @@ class Chantier
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $description = null;
+    private ?string $titre = null;
 
-    /**
-     * @var Collection<int, Image>
-     */
-    #[ORM\OneToMany(targetEntity: Image::class, mappedBy: 'chantier')]
-    private Collection $image;
+    #[ORM\Column(length: 255)]
+    private ?string $desctription = null;
 
-    public function __construct()
-    {
-        $this->image = new ArrayCollection();
-    }
+    #[ORM\Column(length: 255)]
+    private ?string $cover = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $imgleft = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $imgright = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDescription(): ?string
+    public function getTitre(): ?string
     {
-        return $this->description;
+        return $this->titre;
     }
 
-    public function setDescription(string $description): static
+    public function setTitre(string $titre): static
     {
-        $this->description = $description;
+        $this->titre = $titre;
 
         return $this;
     }
 
-    /**
-     * @return Collection<int, Image>
-     */
-    public function getImage(): Collection
+    public function getDesctription(): ?string
     {
-        return $this->image;
+        return $this->desctription;
     }
 
-    public function addImage(Image $image): static
+    public function setDesctription(string $desctription): static
     {
-        if (!$this->image->contains($image)) {
-            $this->image->add($image);
-            $image->setChantier($this);
-        }
+        $this->desctription = $desctription;
 
         return $this;
     }
 
-    public function removeImage(Image $image): static
+    public function getCover(): ?string
     {
-        if ($this->image->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getChantier() === $this) {
-                $image->setChantier(null);
-            }
-        }
+        return $this->cover;
+    }
+
+    public function setCover(string $cover): static
+    {
+        $this->cover = $cover;
+
+        return $this;
+    }
+
+    public function getImgleft(): ?string
+    {
+        return $this->imgleft;
+    }
+
+    public function setImgleft(string $imgleft): static
+    {
+        $this->imgleft = $imgleft;
+
+        return $this;
+    }
+
+    public function getImgright(): ?string
+    {
+        return $this->imgright;
+    }
+
+    public function setImgright(string $imgright): static
+    {
+        $this->imgright = $imgright;
 
         return $this;
     }

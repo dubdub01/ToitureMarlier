@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="contact-page">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2 class="section-title__title" style="padding-top: 60px">Laisser un commentaire</h2>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="contact-page__form">
+                    {{ form_start(myform, {'attr': {'class': 'comment-one__form contact-form-validated', 'novalidate': 'novalidate'}}) }}
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="comment-form__input-box">
+                                {{ form_widget(myform.nom) }}
+                                {{ form_errors(myform.nom) }} <!-- Affiche les erreurs pour le champ nom -->
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="comment-form__input-box">
+                                {{ form_widget(myform.prenom) }}
+                                {{ form_errors(myform.prenom) }} <!-- Affiche les erreurs pour le champ prénom -->
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="comment-form__input-box">
+                                {{ form_widget(myform.ville) }}
+                                {{ form_errors(myform.ville) }} <!-- Affiche les erreurs pour le champ ville -->
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="comment-form__input-box">
+                                {{ form_widget(myform.note) }} <!-- Dropdown for the rating -->
+                                {{ form_errors(myform.note) }} <!-- Affiche les erreurs pour le champ note -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="comment-form__input-box text-message-box">
+                                {{ form_widget(myform.texte) }}
+                                {{ form_errors(myform.texte) }} <!-- Affiche les erreurs pour le champ texte -->
+                            </div>
+                            <div class="comment-form__btn-box">
+                                <button type="submit" class="thm-btn comment-form__btn"> 
+                                    <i class="fa fa-arrow-right"></i> Envoyer le commentaire
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {{ form_end(myform) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
