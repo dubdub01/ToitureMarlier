@@ -112,7 +112,7 @@
                                         <li class="dropdown">
                                             <a href="/services">Services</a>
                                             <ul class="border-top-2px">
-                                                <li><a href=" {{ path('app_demoussage') }}">Démoussage</a></li>
+                                                {# <li><a href=" {{ path('app_demoussage') }}">Démoussage</a></li> #}
                                                 <li><a href=" {{ path('app_couverture') }}">Couverture</a></li>
                                                 <li><a href=" {{ path('app_photovoltaique') }}">Panneau Photovoltaïque</a></li>
                                                 <li><a href=" {{ path('app_charpente') }}">Charpente</a></li>
@@ -123,9 +123,9 @@
                                         <li class="dropdown">
                                             <a href="#">Chantiers </a>
                                             <ul class="border-top-2px">
-                                                <li><a href="#">Work</a></li>
-                                                <li><a href="#">Work Carousel</a></li>
-                                                <li><a href="#">Work Details</a></li>
+                                                <li><a href="{{ path('app_chantier') }}">Nos Chantiers</a></li>
+                                                {# <li><a href="#">Work Carousel</a></li>
+                                                <li><a href="#">Work Details</a></li> #}
                                             </ul>
                                         </li>
                                         <li class="dropdown">
