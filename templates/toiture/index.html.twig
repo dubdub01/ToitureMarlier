@@ -11,12 +11,6 @@
 					<div class="service-details__left">
 						<div class="service-details__category">
 							<ul class="service-details__category-list list-unstyled">
-
-								<li>
-									<a href="/demoussage">Démoussage
-										<span class="fa fa-angle-right"></span>
-									</a>
-								</li>
 								<li>
 									<a href="/couverture">Couverture
 										<span class="fa fa-angle-right"></span>
@@ -60,7 +54,9 @@
 								La technique dite de la toiture chaude consiste en la pose d’une sous-couche fixée directement au plancher de la toiture. Sur celle-ci vient s’installer l’isolant, qui sera ensuite recouvert par une seconde sous-couche et la couche de finition pour les toiture en Derbigum , le travail sera le même pour les toiture en EPDM.
 							</p>
 							<p class="service-details__text-3">Derbigum : qu’il soit lisse ou d’aspect ardoisé, le roofing offre une durée de vie pouvant aller jusqu’à 30 ans, ainsi qu’une grande résistance aux changements de température.</p>
-							<p class="service-details__text-3"><b>L’EPDM: </b>est un revêtement en caoutchouc qui offre une grande élasticité, évitant ainsi les déchirures et garantissant une longévité de plus de 30 ans.</p>
+							<p class="service-details__text-3">
+								<b>L’EPDM:
+								</b>est un revêtement en caoutchouc qui offre une grande élasticité, évitant ainsi les déchirures et garantissant une longévité de plus de 30 ans.</p>
 						</div>
 
 						<div class="service-details__benefits">
@@ -88,5 +84,30 @@
 			</div>
 		</div>
 	</section>
+
+	<div class="search-popup">
+		<div class="search-popup__overlay search-toggler"></div>
+		<!-- /.search-popup__overlay -->
+		<div class="search-popup__content">
+			<form action="#">
+				<label for="search" class="sr-only">search here</label>
+				<!-- /.sr-only -->
+				<input type="text" id="search" placeholder="Search Here..."/>
+				<button type="submit" aria-label="search submit" class="thm-btn">
+					<a href="/"><img src="/assets/images/resources/marlier4White.png" alt="" style="height: 80px;"></a>
+				</button>
+			</form>
+		</div>
+		<!-- /.search-popup__content -->
+	</div>
+	<!-- /.search-popup -->
+
+	<a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+		<i class="fa fa-angle-up"></i>
+	</a>
+
+	<!-- template js -->
+	<script src="assets/js/roofsie.js"></script>
+
 	<!--Service Details End-->
 {% endblock %}
