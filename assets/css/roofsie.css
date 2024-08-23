@@ -2825,20 +2825,13 @@ ul {
 
 .image-layer-three {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: opacity 1500ms ease-in, -webkit-transform 7000ms ease;
-  transition: opacity 1500ms ease-in, -webkit-transform 7000ms ease;
-  transition: transform 7000ms ease, opacity 1500ms ease-in;
-  transition: transform 7000ms ease, opacity 1500ms ease-in, -webkit-transform 7000ms ease;
-  z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
 }
 
 .main-slider-three .swiper-slide-active .image-layer-three {
@@ -2858,9 +2851,14 @@ ul {
 }
 
 .main-slider-three__content {
-  position: relative;
-  display: block;
-  text-align: center;
+  position: absolute; /* Assure que le texte reste fixe */
+    top: 50%; /* Centre verticalement */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Ajuste le centrage */
+    z-index: 10; /* Place le texte au-dessus des images */
+    text-align: center; /* Centre le texte */
+    pointer-events: none; /* Empêche les interactions avec le texte */
+    width: 100%; /* Pour s'assurer que le texte occupe toute la largeur */
 }
 
 .main-slider-three__title {
