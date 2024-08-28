@@ -3,65 +3,73 @@
 {% block body %}
 
 
-<div class="page-wrapper">
+	<div
+		class="page-wrapper">
 
-    <!--Blog Page Start-->
-    <section class="blog-page">
-        <div class="container">
-            <div class="row">
+		<!--Blog Page Start-->
+		<section class="blog-page">
+			<div class="container">
+				<div class="row">
 
-            {% for comm in comms %}
-                {% if comm.visibility == '1' %}
-                <!--Blog One Single Start-->
-                <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
-                    <div class="blog-one__single">
-                        <div class="blog-one__content">
-                            <div class="blog-one__user">
-                                <div class="blog-one__user-content">
-                                    <p>{{comm.prenom}} {{comm.nom}}</p>
-                                    <h5>{{comm.ville}}</h5>
-                                </div>
-                            </div>
-                            <h3 class="blog-one__title">
-                                {% for i in range(1, comm.note) %}
-                                    <i class="fas fa-star" style= "color: red"></i>
-                                {% endfor %}
-                                {% for i in range(1, 5 - comm.note) %}
-                                    <i class="far fa-star"></i>
-                                {% endfor %}
-                            </h3>
-                            <p class="blog-one__text">{{comm.texte}}</p>
-                        </div>
-                    </div>
-                </div>
-                <!--Blog One Single End-->
-                {% endif %}
-            {% endfor %}
-            </div>
-        </div>
-    </section>
-    <!--Blog Page End-->
+					{% for comm in comms %}
+						{% if comm.visibility == '1' %}
+							<!--Blog One Single Start-->
+							<div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+								<div class="blog-one__single">
+									<div class="blog-one__content">
+										<div class="blog-one__user">
+											<div class="blog-one__user-content">
+												<p>{{comm.prenom}}
+													{{comm.nom}}</p>
+												<h5>{{comm.ville}}</h5>
+											</div>
+										</div>
+										<h3 class="blog-one__title">
+											{% for i in range(1, comm.note) %}
+												<i class="fas fa-star" style="color: red"></i>
+											{% endfor %}
+											{% if comm.note < 5 %}
+												{% for i in range(1, 5 - comm.note) %}
+													<i class="far fa-star"></i>
+												{% endfor %}
+											{% endif %}
+										</h3>
+										<p class="blog-one__text">{{comm.texte}}</p>
+									</div>
+								</div>
+							</div>
+							<!--Blog One Single End-->
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+		</section>
+		<!--Blog Page End-->
 
-<div class="search-popup">
-        <div class="search-popup__overlay search-toggler"></div>
-        <!-- /.search-popup__overlay -->
-        <div class="search-popup__content">
-            <form action="#">
-                <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-                <input type="text" id="search" placeholder="Search Here..." />
-                <button type="submit" aria-label="search submit" class="thm-btn">
-                    <i class="icon-magnifying-glass"></i>
-                </button>
-            </form>
-        </div>
-        <!-- /.search-popup__content -->
-    </div>
-    <!-- /.search-popup -->
+		<div class="search-popup">
+			<div class="search-popup__overlay search-toggler"></div>
+			<!-- /.search-popup__overlay -->
+			<div class="search-popup__content">
+				<form action="#">
+					<label for="search" class="sr-only">search here</label>
+					<!-- /.sr-only -->
+					<input type="text" id="search" placeholder="Search Here..."/>
+					<button type="submit" aria-label="search submit" class="thm-btn">
+						<i class="icon-magnifying-glass"></i>
+					</button>
+				</form>
+			</div>
+			<!-- /.search-popup__content -->
+		</div>
+		<!-- /.search-popup -->
 
-    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+		<a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+			<i class="fa fa-angle-up"></i>
+		</a>
 
-    <!-- template js -->
-    <script src="assets/js/roofsie.js"></script>
+		<!-- template js -->
+		<script src="assets/js/roofsie.js"></script>
 
-</div><!-- /.page-wrapper -->
+	</div>
+	<!-- /.page-wrapper -->
 {% endblock %}

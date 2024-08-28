@@ -106,6 +106,59 @@ class AdminPhotoController extends AbstractController
         return $this->redirectToRoute('app_admin_photo');
     }
    
+/**
+ * Permet de modifier un chantier
+ */
+#[Route('/admin/photo/{id}/edit', name: 'app_admin_photo_edit')]
+public function edit(Chantier $chantier, Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+{
+    $form = $this->createForm(ChantierType::class, $chantier);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        // Handle cover image
+        $coverFile = $form->get('cover')->getData();
+        if ($coverFile) {
+            // Upload new file and set it on the entity
+            $newFilename = $this->uploadFile($coverFile, $slugger);
+            $chantier->setCover($newFilename);
+        } else {
+            // Retain existing cover image
+            $chantier->setCover($chantier->getCover());
+        }
+
+        // Handle left image
+        $imgLeftFile = $form->get('imgleft')->getData();
+        if ($imgLeftFile) {
+            // Upload new file and set it on the entity
+            $newFilename = $this->uploadFile($imgLeftFile, $slugger);
+            $chantier->setImgleft($newFilename);
+        } else {
+            // Retain existing left image
+            $chantier->setImgleft($chantier->getImgleft());
+        }
+
+        // Handle right image
+        $imgRightFile = $form->get('imgright')->getData();
+        if ($imgRightFile) {
+            // Upload new file and set it on the entity
+            $newFilename = $this->uploadFile($imgRightFile, $slugger);
+            $chantier->setImgright($newFilename);
+        } else {
+            // Retain existing right image
+            $chantier->setImgright($chantier->getImgright());
+        }
+
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_admin_photo');
+    }
+
+    return $this->render('admin_photo/edit.html.twig', [
+        'form' => $form->createView(),
+        'chantier' => $chantier,
+    ]);
+}
     
     /**
      * Affiche la liste des commentaires

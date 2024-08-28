@@ -15,9 +15,21 @@ class ChantierType extends AbstractType
         $builder
             ->add('titre')
             ->add('desctription')
-            ->add('cover', FileType::class)
-            ->add('imgleft', FileType::class)
-            ->add('imgright', FileType::class)
+            ->add('cover', FileType::class, [
+                'label' => 'Cover Image',
+                'required' => false,
+                'data_class' => null, // Add this line
+            ])
+            ->add('imgleft', FileType::class, [
+                'label' => 'Left Image',
+                'required' => false,
+                'data_class' => null, // Add this line
+            ])
+            ->add('imgright', FileType::class, [
+                'label' => 'Right Image',
+                'required' => false,
+                'data_class' => null, // Add this line
+            ]);
         ;
     }
 
