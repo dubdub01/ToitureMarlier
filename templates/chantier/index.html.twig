@@ -1,63 +1,81 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<div class="page-wrapper">
+	<div
+		class="page-wrapper">
 
-    <!--Blog Page Start-->
-    <section class="blog-page">
-        <div class="container">
-            <div class="row">
+		<!--Blog Page Start-->
+		<section class="blog-page">
+			<div class="container">
+				<div class="row">
 
-            {% for chantier in chantiers %}
-                <!--Blog One Single Start-->
-                <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-                        <div class="services-one__single">
-                            <div class="services-one__img">
-                            <img src="{{ asset('uploads/images/' ~ chantier.cover) }}" alt="Image" style="width: 100px; height: auto;">                            
-                            </div>
-                            <div class="services-one__content">
-                                <h3 class="services-one__title"><a href="/">{{ chantier.titre }}</a></h3>
-                                <p class="services-one__text">{{chantier.desctription}}</p>
-                                <div class="services-one__read-more">
-                                    <a href="/couverture">Read More <i class="fa fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <!--Blog One Single End-->
-            {% endfor %}
-            </div>
-        </div>
-    </section>
-    <!--Blog Page End-->
+					{% for chantier in chantiers %}
+						<!--Blog One Single Start-->
+						<div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+							<div class="services-one__single">
+								<div class="services-one__img">
+									<img src="{{ asset('uploads/images/' ~ chantier.cover) }}" alt="Image" style="width: 100px; height: auto;">
+								</div>
+								<div class="services-one__content">
+									<h3 class="services-one__title">
+										<a href="{{ path('chantier_show', {'id': chantier.id}) }}">{{ chantier.titre }}</a>
+									</h3>
+									<p class="services-one__text">{{chantier.desctription}}</p>
+									<div class="services-one__read-more">
+										<a href="{{ path('chantier_show', {'id': chantier.id}) }}">En savoir plus
+											<i class="fa fa-arrow-right"></i>
+										</a>
+										<!-- Mettre à jour ici -->
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--Blog One Single End-->
+					{% endfor %}
+				</div>
+			</div>
+		</section>
+		<!--Blog Page End-->
 
-    <div class="search-popup">
-        <div class="search-popup__overlay search-toggler"></div>
-        <!-- /.search-popup__overlay -->
-        <div class="search-popup__content">
-            <form action="#">
-                <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-                <input type="text" id="search" placeholder="Search Here..." />
-                <button type="submit" aria-label="search submit" class="thm-btn">
-                    <i class="icon-magnifying-glass"></i>
-                </button>
-            </form>
-        </div>
-        <!-- /.search-popup__content -->
-    </div>
-    <!-- /.search-popup -->
+		<div class="search-popup">
+			<div class="search-popup__overlay search-toggler"></div>
+			<!-- /.search-popup__overlay -->
+			<div class="search-popup__content">
+				<form action="#">
+					<label for="search" class="sr-only">search here</label>
+					<!-- /.sr-only -->
+					<input type="text" id="search" placeholder="Search Here..."/>
+					<button type="submit" aria-label="search submit" class="thm-btn">
+						<i class="icon-magnifying-glass"></i>
+					</button>
+				</form>
+			</div>
+			<!-- /.search-popup__content -->
+		</div>
+		<!-- /.search-popup -->
 
-    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+		<a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+			<i class="fa fa-angle-up"></i>
+		</a>
 
-    <!-- template js -->
-    <script src="assets/js/roofsie.js"></script>
+		<!-- template js -->
+		<script src="assets/js/roofsie.js"></script>
 
-</div><!-- /.page-wrapper -->
+	</div>
+	<!-- /.page-wrapper -->
 {% endblock %}
