@@ -21,14 +21,40 @@
 {% block body %}
 <div class="container mt-5">
     <h1>Ajouter un Chantier</h1>
-    {{ form_start(form) }}
-        <h1>Create new Chantier</h1>
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button class="btn">Save</button>
-    {{ form_end(form) }}
-        
+    <div class="mb-3">
+        {{ form_label(form.titre, 'Titre', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.titre) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.desctription, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.desctription, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.desctription) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.cover, 'Cover Image', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.cover, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.cover) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.imgleft, 'Left Image', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.imgleft, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.imgleft) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.imgright, 'Right Image', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.imgright, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.imgright) }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
     {{ form_end(form) }}
 </div>
 
