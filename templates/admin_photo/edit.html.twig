@@ -17,13 +17,39 @@
 		{% block stylesheets %}{% endblock %}
 		{{ encore_entry_link_tags('app') }}
 	</head>
+
 {% block body %}
-    <h1>Modifier Chantier</h1>
+<div class="container mt-5">
+    <h1>Modifier un Chantier</h1>
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button class="btn btn-primary">Enregistrer les modifications</button>
+    <div class="mb-3">
+        {{ form_label(form.titre, 'Titre', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.titre) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.description) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.image, 'Image', {'label_attr': {'class': 'form-label'}}) }}
+
+        {# Afficher l'image existante si elle existe #}
+        {% if chantier.image %}
+            <img src="{{ asset('uploads/images/' ~ chantier.image) }}" alt="Current Image" class="img-thumbnail mb-3" width="200">
+        {% endif %}
+
+        {# Champ de téléchargement de fichier pour une nouvelle image #}
+        {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.image) }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
     {{ form_end(form) }}
-
-    <a href="{{ path('app_admin_photo') }}">Retour à la liste</a>
+</div>
 {% endblock %}

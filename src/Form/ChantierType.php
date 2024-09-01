@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ChantierType extends AbstractType
 {
@@ -24,7 +25,7 @@ class ChantierType extends AbstractType
                 ],
                 ]
                 )
-            ->add('desctription', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez entrer une description.',
@@ -32,54 +33,17 @@ class ChantierType extends AbstractType
                 ],
                 ]
                 )
-                ->add('cover', FileType::class, [
+                ->add('image', FileType::class, [
                     'label' => 'Cover Image',
                     'required' => false,
                     'data_class' => null, // Permet de gérer un champ de fichier non lié à une classe
                     'constraints' => [
                         new File([
                             'maxSize' => '4M', // Limite de taille à 4 Mo
-                            'mimeTypes' => [
-                                'image/jpeg',
-                                'image/png',
-                                'image/gif',
-                            ],
-                            'mimeTypesMessage' => 'Please upload a valid image (JPEG, PNG, GIF).',
                         ])
                     ],
                 ])
-                ->add('imgleft', FileType::class, [
-                    'label' => 'Left Image',
-                    'required' => false,
-                    'data_class' => null, // Permet de gérer un champ de fichier non lié à une classe
-                    'constraints' => [
-                        new File([
-                            'maxSize' => '4M', // Limite de taille à 4 Mo
-                            'mimeTypes' => [
-                                'image/jpeg',
-                                'image/png',
-                                'image/gif',
-                            ],
-                            'mimeTypesMessage' => 'Please upload a valid image (JPEG, PNG, GIF).',
-                        ])
-                    ],
-                ])
-                ->add('imgright', FileType::class, [
-                    'label' => 'Right Image',
-                    'required' => false,
-                    'data_class' => null, // Permet de gérer un champ de fichier non lié à une classe
-                    'constraints' => [
-                        new File([
-                            'maxSize' => '4M', // Limite de taille à 4 Mo
-                            'mimeTypes' => [
-                                'image/jpeg',
-                                'image/png',
-                                'image/gif',
-                            ],
-                            'mimeTypesMessage' => 'Please upload a valid image (JPEG, PNG, GIF).',
-                        ])
-                    ],
-                ]);
+                ;
         }
     
         public function configureOptions(OptionsResolver $resolver): void

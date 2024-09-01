@@ -29,13 +29,13 @@
 						<div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms">
 							<div class="services-one__single">
 								<div class="services-one__img">
-									<img src="{{ asset('uploads/images/' ~ chantier.cover) }}" alt="Image" style="width: 100px; height: auto;">
+									<img src="{{ asset('uploads/images/' ~ chantier.image) }}" alt="Image" style="width: 100px; height: auto;">
 								</div>
 								<div class="services-one__content">
 									<h3 class="services-one__title">
 										<a href="{{ path('chantier_show', {'id': chantier.id}) }}">{{ chantier.titre }}</a>
 									</h3>
-									<p class="services-one__text">{{chantier.desctription}}</p>
+									<p class="services-one__text">{{chantier.description}}</p>
 									<div class="services-one__read-more">
 										<a href="{{ path('chantier_show', {'id': chantier.id}) }}">En savoir plus
 											<i class="fa fa-arrow-right"></i>

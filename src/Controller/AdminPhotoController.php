@@ -43,23 +43,11 @@ class AdminPhotoController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $coverFile = $form->get('cover')->getData();
-            $imgLeftFile = $form->get('imgleft')->getData();
-            $imgRightFile = $form->get('imgright')->getData();
+            $imageFile = $form->get('image')->getData();
 
-            if ($coverFile) {
-                $newFilename = $this->uploadFile($coverFile, $slugger);
-                $chantier->setCover($newFilename);
-            }
-
-            if ($imgLeftFile) {
-                $newFilename = $this->uploadFile($imgLeftFile, $slugger);
-                $chantier->setImgleft($newFilename);
-            }
-
-            if ($imgRightFile) {
-                $newFilename = $this->uploadFile($imgRightFile, $slugger);
-                $chantier->setImgright($newFilename);
+            if ($imageFile) {
+                $newFilename = $this->uploadFile($imageFile, $slugger);
+                $chantier->setImage($newFilename);
             }
 
             $entityManager->persist($chantier);
@@ -116,38 +104,16 @@ public function edit(Chantier $chantier, Request $request, EntityManagerInterfac
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
-        // Handle cover image
-        $coverFile = $form->get('cover')->getData();
-        if ($coverFile) {
-            // Upload new file and set it on the entity
-            $newFilename = $this->uploadFile($coverFile, $slugger);
-            $chantier->setCover($newFilename);
-        } else {
-            // Retain existing cover image
-            $chantier->setCover($chantier->getCover());
+        // Gestion de l'image de couverture
+        $imageFile = $form->get('image')->getData();
+
+        if ($imageFile) {
+            // Upload du nouveau fichier et mise à jour de l'entité
+            $newFilename = $this->uploadFile($imageFile, $slugger);
+            $chantier->setImage($newFilename);
         }
 
-        // Handle left image
-        $imgLeftFile = $form->get('imgleft')->getData();
-        if ($imgLeftFile) {
-            // Upload new file and set it on the entity
-            $newFilename = $this->uploadFile($imgLeftFile, $slugger);
-            $chantier->setImgleft($newFilename);
-        } else {
-            // Retain existing left image
-            $chantier->setImgleft($chantier->getImgleft());
-        }
-
-        // Handle right image
-        $imgRightFile = $form->get('imgright')->getData();
-        if ($imgRightFile) {
-            // Upload new file and set it on the entity
-            $newFilename = $this->uploadFile($imgRightFile, $slugger);
-            $chantier->setImgright($newFilename);
-        } else {
-            // Retain existing right image
-            $chantier->setImgright($chantier->getImgright());
-        }
+        // Pas besoin d'appeler setImage si aucune image n'est téléchargée
 
         $entityManager->flush();
 

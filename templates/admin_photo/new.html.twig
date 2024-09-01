@@ -30,33 +30,21 @@
     </div>
 
     <div class="mb-3">
-        {{ form_label(form.desctription, 'Description', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(form.desctription, {'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(form.desctription) }}
+        {{ form_label(form.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.description) }}
     </div>
 
     <div class="mb-3">
-        {{ form_label(form.cover, 'Cover Image', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(form.cover, {'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(form.cover) }}
-    </div>
-
-    <div class="mb-3">
-        {{ form_label(form.imgleft, 'Left Image', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(form.imgleft, {'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(form.imgleft) }}
-    </div>
-
-    <div class="mb-3">
-        {{ form_label(form.imgright, 'Right Image', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(form.imgright, {'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(form.imgright) }}
+        {{ form_label(form.image, 'Image', {'label_attr': {'class': 'form-label'}}) }}
+        {% set imagePath = form.image.vars.value ? form.image.vars.value : '/path/to/default/image.png' %}
+        <img src="{{ asset(imagePath) }}" alt="Default Image" class="img-thumbnail mb-3" width="200">
+        {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.image) }}
     </div>
 
     <button type="submit" class="btn btn-primary">Save</button>
 
     {{ form_end(form) }}
 </div>
-
-
 {% endblock %}

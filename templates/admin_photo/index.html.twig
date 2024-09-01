@@ -29,9 +29,7 @@
                     <th>Id</th>
                     <th>Titre</th>
                     <th>Description</th>
-                    <th>Cover</th>
-                    <th>Image Gauche</th>
-                    <th>Image Droite</th>
+                    <th>Image</th>
                     <th class="text-center">Action</th>
                 </tr>
             </thead>
@@ -40,15 +38,9 @@
                     <tr>
                         <td>{{ chantier.id }}</td>
                         <td>{{ chantier.titre }}</td>
-                        <td>{{ chantier.desctription }}</td>
+                        <td>{{ chantier.description }}</td>
                         <td>
-                            <img src="{{ asset('uploads/images/' ~ chantier.cover) }}" alt="Image" style="width: 100px; height: auto;">                            
-                        </td>
-                        <td>
-                            <img src="{{ asset('uploads/images/' ~ chantier.imgleft) }}" alt="Image" style="width: 100px; height: auto;">                            
-                        </td>
-                        <td>
-                            <img src="{{ asset('uploads/images/' ~ chantier.imgright) }}" alt="Image" style="width: 100px; height: auto;">                            
+                            <img src="{{ asset('uploads/images/' ~ chantier.image) }}" alt="Image" style="width: 100px; height: auto;">                            
                         </td>
                         <td class="text-center">
                             <div class="btn-group" role="group">

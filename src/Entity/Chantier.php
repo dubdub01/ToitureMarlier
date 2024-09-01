@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ChantierRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ChantierRepository::class)]
@@ -16,17 +17,11 @@ class Chantier
     #[ORM\Column(length: 255)]
     private ?string $titre = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $desctription = null;
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $description = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $cover = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $imgleft = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $imgright = null;
+    private ?string $image = null;
 
     public function getId(): ?int
     {
@@ -45,51 +40,29 @@ class Chantier
         return $this;
     }
 
-    public function getDesctription(): ?string
+    public function getDescription(): ?string
     {
-        return $this->desctription;
+        return $this->description;
     }
 
-    public function setDesctription(string $desctription): static
+    public function setDescription(string $description): static
     {
-        $this->desctription = $desctription;
+        $this->description = $description;
 
         return $this;
     }
 
-    public function getCover(): ?string
+    public function getImage(): ?string
     {
-        return $this->cover;
+        return $this->image;
     }
 
-    public function setCover(string $cover): static
-    {
-        $this->cover = $cover;
-
-        return $this;
+    public function setImage(?string $image): self
+{
+    if ($image !== null) {
+        $this->image = $image;
     }
 
-    public function getImgleft(): ?string
-    {
-        return $this->imgleft;
-    }
-
-    public function setImgleft(string $imgleft): static
-    {
-        $this->imgleft = $imgleft;
-
-        return $this;
-    }
-
-    public function getImgright(): ?string
-    {
-        return $this->imgright;
-    }
-
-    public function setImgright(string $imgright): static
-    {
-        $this->imgright = $imgright;
-
-        return $this;
-    }
+    return $this;
+}
 }

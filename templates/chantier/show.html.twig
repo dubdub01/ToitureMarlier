@@ -9,38 +9,15 @@
 			<div class="row">
 				<div class="col-xl-8 col-lg-7">
 					<div class="service-details__right">
+						<div class="service-details__img">
+							<img src="{{ asset('uploads/images/' ~ chantier.image) }}" alt="">
+						</div>
 						<div class="service-details__content">
 							<h3 class="service-details__content-title">{{ chantier.titre }}</h3>
 							<p class="service-details__text-1">
-								{{chantier.desctription}}
+								{{chantier.description}}
 							</p>
 						</div>
-
-
-						
-
-						<div class="service-details__benefits">
-							<div class="row">
-								<div class="col-xl-6">
-									<div class="service-details__benefits-single">
-										<div class="service-details__benefits-img">
-											<img src="{{ asset('uploads/images/' ~ chantier.imgleft) }}" alt="" style="height:277.5px; width:370px">
-										</div>
-
-									</div>
-								</div>
-								<div class="col-xl-6">
-									<div class="service-details__benefits-single">
-										<div class="service-details__benefits-img">
-											<img src="{{ asset('uploads/images/' ~ chantier.imgright) }}" alt="" style="height:277.5px; width:370px">
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						
-
 					</div>
 				</div>
 			</div>
@@ -48,25 +25,28 @@
 	</section>
 
 	<div class="search-popup">
-        <div class="search-popup__overlay search-toggler"></div>
-        <!-- /.search-popup__overlay -->
-        <div class="search-popup__content">
-            <form action="#">
-                <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-                <input type="text" id="search" placeholder="Search Here..." />
-                <button type="submit" aria-label="search submit" class="thm-btn">
-                    <i class="icon-magnifying-glass"></i>
-                </button>
-            </form>
-        </div>
-        <!-- /.search-popup__content -->
-    </div>
-    <!-- /.search-popup -->
+		<div class="search-popup__overlay search-toggler"></div>
+		<!-- /.search-popup__overlay -->
+		<div class="search-popup__content">
+			<form action="#">
+				<label for="search" class="sr-only">search here</label>
+				<!-- /.sr-only -->
+				<input type="text" id="search" placeholder="Search Here..."/>
+				<button type="submit" aria-label="search submit" class="thm-btn">
+					<i class="icon-magnifying-glass"></i>
+				</button>
+			</form>
+		</div>
+		<!-- /.search-popup__content -->
+	</div>
+	<!-- /.search-popup -->
 
-    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+	<a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+		<i class="fa fa-angle-up"></i>
+	</a>
 
-    <!-- template js -->
-    <script src="assets/js/roofsie.js"></script>
+	<!-- template js -->
+	<script src="assets/js/roofsie.js"></script>
 
 	<!--Service Details End-->
 {% endblock %}
