@@ -1,0 +1,142 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<section class="contact-page">
+		<div class="container">
+			<div class="section-title text-center">
+				<h2 class="section-title__title" style="padding-top: 62px">Prendre contact</h2>
+				<p class="appointment__text">Nous vous répondrons dans les plus brefs délais</p>
+			</div>
+			<div class="row">
+				<div class="col-xl-12">
+					<div
+						class="contact-page__form">
+						<!-- Affichage des messages flash -->
+						{% for message in app.flashes('success') %}
+							<div class="alert alert-success">
+								{{ message }}
+							</div>
+						{% endfor %}
+
+						{% for message in app.flashes('error') %}
+							<div class="alert alert-danger">
+								{{ message }}
+							</div>
+						{% endfor %}
+						<form action="{{ path('contact') }}" method="POST" class="appointment__form contact-form-validated" novalidate="novalidate">
+
+							<div class="row">
+								<div class="col-xl-6">
+									<div class="comment-form__input-box">
+										<input type="text" placeholder="Nom" name="name" required>
+											<div class="appointment__input-icon">
+												<i class="far fa-user"></i>
+											</div>
+									</div>
+								</div>
+								<div class="col-xl-6">
+									<div class="comment-form__input-box">
+										<input type="text" placeholder="Téléphone" name="Phone" required>
+											<div class="appointment__input-icon">
+												<i class="fas fa-phone"></i>
+											</div>
+									</div>
+								</div>
+								<div class="col-xl-6">
+									<div class="comment-form__input-box">
+										<input type="text" placeholder="Ville" name="Address" required>
+											<div class="appointment__input-icon">
+												<i class="fas fa-map-marker-alt"></i>
+											</div>
+									</div>
+								</div>
+								
+							</div>
+							<div class="row">
+								<div class="col-xl-12">
+									
+									<div class="appointment__input-box">
+											<button type="submit" class="thm-btn appointment__btn">
+												<i class="fa fa-arrow-right"></i>
+												Envoyer
+											</button>
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		{# <section class="appointment">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-3 col-lg-4">
+						<div class="appointment__left" style="padding-top: 28px">
+							<div class="appointment-shape-1" style="background-image: url(assets/images/shapes/appointment-shape-1.png);"></div>
+							<div class="appointment__left-content">
+								<h3 class="appointment__title">Prendre contact</h3>
+								<p class="appointment__text">Nous vous répondrons dans les plus brefs délais</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-9 col-lg-8">
+						<div
+							class="appointment__right">
+							<!-- Affichage des messages flash -->
+							{% for message in app.flashes('success') %}
+								<div class="alert alert-success">
+									{{ message }}
+								</div>
+							{% endfor %}
+
+							{% for message in app.flashes('error') %}
+								<div class="alert alert-danger">
+									{{ message }}
+								</div>
+							{% endfor %}
+							<form action="{{ path('contact') }}" method="POST" class="appointment__form contact-form-validated" novalidate="novalidate">
+								<div class="row">
+									<div class="col-xl-6 col-lg-6 col-md-6">
+										<div class="appointment__input-box">
+											<input type="text" placeholder="Nom" name="name" required>
+											<div class="appointment__input-icon">
+												<i class="far fa-user"></i>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6">
+										<div class="appointment__input-box">
+											<input type="text" placeholder="Téléphone" name="Phone" required>
+											<div class="appointment__input-icon">
+												<i class="fas fa-phone"></i>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6">
+										<div class="appointment__input-box">
+											<input type="text" placeholder="Ville" name="Address" required>
+											<div class="appointment__input-icon">
+												<i class="fas fa-map-marker-alt"></i>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6">
+										<div class="appointment__input-box">
+											<button type="submit" class="thm-btn appointment__btn">
+												<i class="fa fa-arrow-right"></i>
+												Envoyer
+											</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section> #}
+	{% endblock %}
