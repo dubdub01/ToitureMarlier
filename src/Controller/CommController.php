@@ -16,13 +16,13 @@ class CommController extends AbstractController
     #[Route('/comm', name: 'app_comm')]
     public function index(CommentaireRepository $repo): Response
     {
-        $comms = $repo->findAll();
-
+        // Récupérer les commentaires triés par id en ordre décroissant
+        $comms = $repo->findBy([], ['id' => 'DESC']);
         return $this->render('comm/index.html.twig', [
             'comms' => $comms
         ]);
     }
-    
+
     /**
      * Permet de créer un Commentaire
      *
@@ -38,8 +38,7 @@ class CommController extends AbstractController
         $form = $this->createForm(CommType::class, $comm);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) 
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
 
             $manager->persist($comm);
             $manager->flush();
@@ -51,11 +50,8 @@ class CommController extends AbstractController
             return $this->redirectToRoute(('app_homepage'));
         }
 
-        return $this->render("comm/new.html.twig",[
+        return $this->render("comm/new.html.twig", [
             'myform' => $form->createView()
         ]);
-       
-
     }
-
 }

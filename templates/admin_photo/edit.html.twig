@@ -47,6 +47,30 @@
         {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
         {{ form_errors(form.image) }}
     </div>
+    <div class="mb-3">
+        {{ form_label(form.imageLeft, 'imageLeft', {'label_attr': {'class': 'form-label'}}) }}
+
+        {# Afficher l'image existante si elle existe #}
+        {% if chantier.imageLeft %}
+            <img src="{{ asset('uploads/images/' ~ chantier.imageLeft) }}" alt="Current Image" class="img-thumbnail mb-3" width="200">
+        {% endif %}
+
+        {# Champ de téléchargement de fichier pour une nouvelle image #}
+        {{ form_widget(form.imageLeft, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.imageLeft) }}
+    </div>
+    <div class="mb-3">
+        {{ form_label(form.imageRight, 'Image', {'label_attr': {'class': 'form-label'}}) }}
+
+        {# Afficher l'image existante si elle existe #}
+        {% if chantier.imageRight %}
+            <img src="{{ asset('uploads/images/' ~ chantier.imageRight) }}" alt="Current Image" class="img-thumbnail mb-3" width="200">
+        {% endif %}
+
+        {# Champ de téléchargement de fichier pour une nouvelle image #}
+        {{ form_widget(form.imageRight, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.imageRight) }}
+    </div>
 
     <button type="submit" class="btn btn-primary">Save</button>
 

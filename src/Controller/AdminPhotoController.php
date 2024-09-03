@@ -44,10 +44,20 @@ class AdminPhotoController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $imageFile = $form->get('image')->getData();
+            $imageLeftFile = $form->get('imageLeft')->getData();
+            $imageRightFile = $form->get('imageRight')->getData();
 
             if ($imageFile) {
                 $newFilename = $this->uploadFile($imageFile, $slugger);
                 $chantier->setImage($newFilename);
+            }
+            if ($imageLeftFile) {
+                $newFilename = $this->uploadFile($imageLeftFile, $slugger);
+                $chantier->setImageleft($newFilename);
+            }
+            if ($imageRightFile) {
+                $newFilename = $this->uploadFile($imageRightFile, $slugger);
+                $chantier->setImageright($newFilename);
             }
 
             $entityManager->persist($chantier);
@@ -100,21 +110,42 @@ class AdminPhotoController extends AbstractController
 #[Route('/admin/photo/{id}/edit', name: 'app_admin_photo_edit')]
 public function edit(Chantier $chantier, Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
 {
+    $originalImage = $chantier->getImage();
+    $originalImageLeft = $chantier->getImageLeft();
+    $originalImageRight = $chantier->getImageRight();
+
     $form = $this->createForm(ChantierType::class, $chantier);
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
-        // Gestion de l'image de couverture
+        // Handle main image
         $imageFile = $form->get('image')->getData();
-
         if ($imageFile) {
-            // Upload du nouveau fichier et mise à jour de l'entité
             $newFilename = $this->uploadFile($imageFile, $slugger);
             $chantier->setImage($newFilename);
+        } else {
+            $chantier->setImage($originalImage); // Retain the original image
         }
 
-        // Pas besoin d'appeler setImage si aucune image n'est téléchargée
+        // Handle left image
+        $imageLeftFile = $form->get('imageLeft')->getData();
+        if ($imageLeftFile) {
+            $newFilenameLeft = $this->uploadFile($imageLeftFile, $slugger);
+            $chantier->setImageLeft($newFilenameLeft);
+        } else {
+            $chantier->setImageLeft($originalImageLeft); // Retain the original left image
+        }
 
+        // Handle right image
+        $imageRightFile = $form->get('imageRight')->getData();
+        if ($imageRightFile) {
+            $newFilenameRight = $this->uploadFile($imageRightFile, $slugger);
+            $chantier->setImageRight($newFilenameRight);
+        } else {
+            $chantier->setImageRight($originalImageRight); // Retain the original right image
+        }
+
+        // Persist changes to the database
         $entityManager->flush();
 
         return $this->redirectToRoute('app_admin_photo');
@@ -125,6 +156,10 @@ public function edit(Chantier $chantier, Request $request, EntityManagerInterfac
         'chantier' => $chantier,
     ]);
 }
+
+
+
+
     
     /**
      * Affiche la liste des commentaires

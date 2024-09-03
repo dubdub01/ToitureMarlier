@@ -37,10 +37,18 @@
 
     <div class="mb-3">
         {{ form_label(form.image, 'Image', {'label_attr': {'class': 'form-label'}}) }}
-        {% set imagePath = form.image.vars.value ? form.image.vars.value : '/path/to/default/image.png' %}
-        <img src="{{ asset(imagePath) }}" alt="Default Image" class="img-thumbnail mb-3" width="200">
         {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
         {{ form_errors(form.image) }}
+    </div>
+    <div class="mb-3">
+        {{ form_label(form.imageLeft, 'Image', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.imageLeft, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.imageLeft) }}
+    </div>
+    <div class="mb-3">
+        {{ form_label(form.imageRight, 'Image', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.imageRight, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.imageRight) }}
     </div>
 
     <button type="submit" class="btn btn-primary">Save</button>

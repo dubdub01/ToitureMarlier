@@ -13,8 +13,8 @@ class ChantierController extends AbstractController
     #[Route('/chantier', name: 'app_chantier')]
     public function index(ChantierRepository $repo): Response
     {
-        $chantiers = $repo->findAll();
-
+        // Récupérer les commentaires triés par id en ordre décroissant
+        $chantiers = $repo->findBy([], ['id' => 'DESC']);
         return $this->render('chantier/index.html.twig', [
             'chantiers' => $chantiers
         ]);

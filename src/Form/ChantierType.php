@@ -35,6 +35,26 @@ class ChantierType extends AbstractType
                 )
                 ->add('image', FileType::class, [
                     'label' => 'Cover Image',
+                    'required' => true,
+                    'data_class' => null, // Permet de gérer un champ de fichier non lié à une classe
+                    'constraints' => [
+                        new File([
+                            'maxSize' => '4M', // Limite de taille à 4 Mo
+                        ])
+                    ],
+                ])
+                ->add('imageLeft', FileType::class, [
+                    'label' => 'Image Gauche optionnel',
+                    'required' => false,
+                    'data_class' => null, // Permet de gérer un champ de fichier non lié à une classe
+                    'constraints' => [
+                        new File([
+                            'maxSize' => '4M', // Limite de taille à 4 Mo
+                        ])
+                    ],
+                ])
+                ->add('imageRight', FileType::class, [
+                    'label' => 'Image Droite optionnel',
                     'required' => false,
                     'data_class' => null, // Permet de gérer un champ de fichier non lié à une classe
                     'constraints' => [

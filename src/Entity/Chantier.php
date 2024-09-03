@@ -23,6 +23,12 @@ class Chantier
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $imageLeft = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $imageRight = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -58,11 +64,33 @@ class Chantier
     }
 
     public function setImage(?string $image): self
-{
-    if ($image !== null) {
+    {
         $this->image = $image;
+
+        return $this;
     }
 
-    return $this;
-}
+    public function getImageLeft(): ?string
+    {
+        return $this->imageLeft;
+    }
+
+    public function setImageLeft(?string $imageLeft): self
+    {
+        $this->imageLeft = $imageLeft;
+
+        return $this;
+    }
+
+    public function getImageRight(): ?string
+    {
+        return $this->imageRight;
+    }
+
+    public function setImageRight(?string $imageRight): self
+    {
+        $this->imageRight = $imageRight;
+
+        return $this;
+    }
 }
