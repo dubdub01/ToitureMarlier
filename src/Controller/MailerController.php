@@ -31,8 +31,8 @@ class MailerController extends AbstractController
             try {
                 // Créer et envoyer l'e-mail
                 $email = (new Email())
-                    ->from('noreply@wip.duboismax.com') // Remplacez par votre adresse e-mail
-                    ->to('duboismax01@gmail.com') // Remplacez par l'adresse e-mail de réception
+                    ->from('noreply@toiture-marlier.be') // Remplacez par votre adresse e-mail
+                    ->to('toituremarlier@gmail.com') // Remplacez par l'adresse e-mail de réception
                     ->subject(sprintf('Nouvelle demande de contact de %s', $nom)) // Inclure le nom dans l'objet
                     ->text($messageContent);
 
