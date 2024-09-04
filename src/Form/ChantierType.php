@@ -35,7 +35,7 @@ class ChantierType extends AbstractType
                 )
                 ->add('image', FileType::class, [
                     'label' => 'Cover Image',
-                    'required' => true,
+                    'required' => false,
                     'data_class' => null, // Permet de gérer un champ de fichier non lié à une classe
                     'constraints' => [
                         new File([
